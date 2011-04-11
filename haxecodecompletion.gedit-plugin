@@ -1,0 +1,9 @@
+[Gedit Plugin]
+Loader=python
+Module=haxecodecompletion
+IAge=2
+Name=Haxe Code Completion
+Description=Complete Haxe code with Ctrl+Space key combination
+Authors=Christophe Eymard (Pwipwi) <christophe.eymard@gmail.com>,Rodrigo Pinheiro Marques de Araujo (Fenrrir) <fenrrir@gmail.com>
+Copyright=None
+

@@ -1,0 +1,28 @@
+To install the gedit completion plugin, just do the following steps :
+
+Execute the install-syntax.sh file as root to have syntax hilighting.
+
+Execute the install-plugin.sh as user to have it installed for user only, or as root to install it system wide.
+
+Relaunch GEdit, go to Edit -> Preferences -> Plugins, and activate Haxe Code Completion.
+
+That's it, you should be good to go.
+
+A quick note about how it works :
+
+If at the root of your project there is a compile.hxml, the plugin will use it to determine the options of your code (ie, if you're doing flash, flash9, php, ...). If it doesn't exists, it will assume flash9.
+
+A typical structure would be the following :
+
+$ find ./src
+./src/compile.hxml
+./src/Main.hx
+./src/org/somesite/mypackage
+./src/org/somesite/mypackage/MyClass.hx
+
+In this case, the completion should work okay.
+
+In case of syntax errors, the plugin generally displays the error, since it can't complete anything. If it doesn't bring up anything at all, try deactivating it and reactivating it in the plugins menu.
+
+That should be it. Good haxing !
+

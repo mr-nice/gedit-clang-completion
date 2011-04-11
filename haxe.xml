@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+   <mime-type type="text/x-haxe">
+     <sub-class-of type="text/x-csrc"/>
+     <comment>Haxe source file</comment>
+     <glob pattern="*.hx"/>
+   </mime-type>
+</mime-info>
+
