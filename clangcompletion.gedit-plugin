@@ -5,5 +5,4 @@ IAge=2
 Name=Clang Code Completion
 Description=Use clang to complete code with Ctrl+Space key combination
 Authors=Christophe Eymard (Pwipwi) <christophe.eymard@gmail.com>,Bernhard Guillon <Bernhard.Guillon@opensimpad.org>,Rodrigo Pinheiro Marques de Araujo (Fenrrir) <fenrrir@gmail.com>
-Copyright=None
-
+Copyright=GPL
