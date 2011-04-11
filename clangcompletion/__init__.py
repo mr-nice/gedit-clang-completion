@@ -17,5 +17,5 @@
 
 """Load the python code completion plugin"""
 
-import haxecodecompletion
-from haxecodecompletion import CompletionPlugin
+import clangcompletion
+from clangcompletion import CompletionPlugin

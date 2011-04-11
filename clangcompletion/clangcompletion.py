@@ -1,6 +1,7 @@
 # Copyright (C) 2006-2007 Osmo Salomaa
 # Copyright (C) 2008 Rodrigo Pinheiro Marques de Araujo
-# Copyright (C) 2008 Michael Mc Donnell                      
+# Copyright (C) 2008 Michael Mc Donnell
+# Copyright (C) 2011 Bernhard Guillon
 #
 # This program is free software; you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free Software
@@ -24,7 +25,7 @@ import gedit
 import gobject
 import gtk
 import re
-from complete import haxe_complete
+from complete import clang_complete
 import configurationdialog
 import configuration
 
@@ -41,7 +42,7 @@ class CompletionPlugin(gedit.Plugin):
 
         gedit.Plugin.__init__(self)
         self.completions = None
-        self.name = "HaxeCompletionPlugin"
+        self.name = "ClangCompletionPlugin"
         self.window = None
 
     def activate(self, window):
@@ -131,13 +132,13 @@ class CompletionPlugin(gedit.Plugin):
             if text[offset - 1] == '.': # We don't want to complete something we KNOW is incorrect.
                 # This is just to avoid waiting when doing the ... operator.
                 return self.cancel ()
-            offset += 1
+            offset= str(insert.get_line()+1) + ":" + str(insert.get_line_offset()+2)
             incomplete = "" # When pressing . the incomplete word is the one right before the dot.
         else:
-            offset = start.get_offset ()
+            offset= str(insert.get_line()+1) + ":" + str(insert.get_line_offset()+1)
 
-        # We call the haxe engine to get the list of completion.
-        completes = haxe_complete (doc.get_uri (), text, offset)
+        # We call the clang engine to get the list of completion.
+        completes = clang_complete (doc.get_uri (), text, offset)
 
         # Nothing in the completion list, so no need to do anything
         if not completes:
@@ -156,7 +157,7 @@ class CompletionPlugin(gedit.Plugin):
         # TODO It would be best to never get called in the first place.
 
         try:
-            if not active_doc.get_uri ().endswith ('hx'):
+            if not active_doc.get_uri ().endswith ('c'):
                 return self.cancel ()
         except:
             return self.cancel ()
